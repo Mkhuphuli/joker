@@ -11,16 +11,19 @@ class LoggedIn extends Component{
             url:"https://icanhazdadjoke.com/",
             method:'get',
 	    	headers: {
-                'accept': 'application/json'
+                'accept': 'text/plain'
             }
         }).then(response =>{
-            this.setState({
-                joke:response.data.joke
-            })
+            if(response.status===200){
+                this.setState({
+                    joke:response.data
+                })
+            } else {
+                this.setState({
+                    joke:'Oops try again'
+                })
+            }
         })
-
-
-        
     }
     render(){
         return (
