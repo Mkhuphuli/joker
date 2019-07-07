@@ -52,7 +52,7 @@ class Login extends Component{
                     <br/>
                     <input type="password" id="password" key='1' placeholder="Password" onChange={this.handleChange} onKeyPress={this.handleKeyPress}/>
                     <div className="authError">
-                        {authError? <p>{authError}</p>: null}
+                        {authError? <p className="alertMessage">Wrong Email or Password </p>: null}
                     </div>
                 </form>
             </div>

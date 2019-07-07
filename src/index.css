@@ -66,3 +66,7 @@ input {
   border-color: #c4c0c0;
   border-width: 1px;
 }
+
+.alertMessage{
+  color: red;
+}
