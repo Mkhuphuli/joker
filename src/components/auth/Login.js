@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect}  from 'react-redux';
-import {logIn} from '../../store/actions'
+import {logIn} from '../../store/actions';
+import {Redirect} from 'react-router-dom';
 
 
 class Login extends Component{
@@ -8,6 +9,7 @@ class Login extends Component{
         email:"",
         password:""
     }
+    
     handleKeyPress=(e)=>{
             
         if(e.target.id==='email'){
@@ -25,7 +27,8 @@ class Login extends Component{
             this.setState({
                 [e.target.id]:e.target.value
             })
-            if (e.key==='Enter'){this.props.logIn(this.state)}
+            if (e.key==='Enter'){
+                this.props.logIn(this.state)}
         }
     }
     handleChange=(e)=>{
@@ -39,7 +42,8 @@ class Login extends Component{
     }
 
     render(){
-        const {authError} =this.props
+        const {authError, auth} =this.props;
+        if(auth.uid) return <Redirect to='/' /> 
         return(
             <div className="login-container">
                 <form className='login-form' onSubmit={this.handleSubmit}>
@@ -52,14 +56,14 @@ class Login extends Component{
                     </div>
                 </form>
             </div>
-        )
-    }
+        )}
 }
 
-const mapStateToProps =(state)=>{
+const mapStateToProps=(state)=>{
     console.log(state)
     return{
-        authError: state.auth.authError
+        authError: state.auth.authError,
+        auth: state.firebase.auth
     }
 }
 
