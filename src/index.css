@@ -40,7 +40,6 @@ li{
   width: 100%;
   padding:20% 0%;
   color: #565656;
-  background-color: #941010;
 }
 
 img {
@@ -64,5 +63,6 @@ a {
 }
 
 input {
-  border-color:5px  #565656;
+  border-color: #c4c0c0;
+  border-width: 1px;
 }
