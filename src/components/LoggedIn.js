@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios'; 
+import {connect}  from 'react-redux';
+import {Redirect} from 'react-router-dom';
 
 
 class LoggedIn extends Component{
@@ -26,6 +28,8 @@ class LoggedIn extends Component{
         })
     }
     render(){
+        const {auth} =this.props
+        if(!auth.uid) return <Redirect to='/login' /> 
         return (
             <div className="jokes-container">
                 {this.state.joke}
@@ -37,4 +41,11 @@ class LoggedIn extends Component{
     }
 }
 
-export default LoggedIn 
+const mapStateToProps=(state)=>{
+    return{
+        auth: state.firebase.auth
+    }
+}
+
+
+export default connect(mapStateToProps)(LoggedIn);
