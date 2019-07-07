@@ -4,9 +4,7 @@ import LoggedOutLinks from './LoggedOutLinks';
 import {connect} from 'react-redux';
 
 const Navbar = ({auth}) => {
-    console.log(auth.uid)
     const links = auth.uid? <LoggedInLinks/> : <LoggedOutLinks/>
-
     return (
         <div className="nav-container">
             {links}

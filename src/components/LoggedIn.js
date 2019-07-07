@@ -30,7 +30,7 @@ class LoggedIn extends Component{
             <div className="jokes-container">
                 {this.state.joke}
                 <br/>
-                <img className='play-button' src={require("../play-button.png")} alt="Play" onClick={this.getJoke}/>
+                <img className='play-button' src={require("../img/play-button.png")} alt="Play" onClick={this.getJoke}/>
             </div>
             
         )

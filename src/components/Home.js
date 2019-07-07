@@ -4,7 +4,6 @@ import LoggedOut from './LoggedOut.js';
 import {connect} from 'react-redux';
 
 const Home = ({auth})  => {
-    console.log(auth.uid)
     const dashboard = auth.uid? <LoggedIn/> : <LoggedOut/>
 
     return (
@@ -16,7 +15,6 @@ const Home = ({auth})  => {
 
 
 const mapStateToProps =(state)=>{
-    console.log(state)
     return{
         auth: state.firebase.auth
     }
